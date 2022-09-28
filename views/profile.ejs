@@ -1,53 +1,17 @@
 <%- include('partials/header') -%>
-<div class="container centerme">
-  <div class="row mt-5">
-      <div class="col-6">
-          <!-- <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div> -->
-          <div class="card w-96 bg-base-100 shadow-xl">
-            <div class="card-body">
-              <h2 class="card-title"><strong>User Name</strong>: <%= user.userName %></h2>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-              <!-- <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-              </div> -->
-            </div>
-          </div>
-          <!-- <div class="mt-5">
-            <h2>Add a Pet</h2> -->
-            <form action="/pet/createPet" enctype="multipart/form-data" method="POST">
-              <!-- TODO Pet - NAME SPECIES IMAGE -->
-              <!-- <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
-              </div> -->
-              <!-- <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Pet Name</span>
-                </label>
-                <label class="input-group">
-                  <span>Pet Name</span>
-                  <input type="text" id="name" name="name" placeholder="What an adorable name!" class="input input-bordered" /> -->
-                  <!-- alternate species entry - txtbox -->
-                  <!-- <input type="text" id="species" name="species" placeholder="Rabbit, Cat, Iguana, etc..." class="input input-bordered" /> -->
-                  <!--  -->
-                  <!-- <select name="species" id="species" class="select select-bordered">
-                    <option disabled selected>Pick Species</option>
-                    <option value='dog'>Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="horse">Horse</option>
-                  </select>
-                </label>
-              </div> -->
 
-              <div class="bg-grey-lighter min-h-screen flex flex-col">
-                <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                    <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                        <h1 class="mb-8 text-3xl text-center">Add a Pet</h1>
+         <div class="bg-grey-lighter min-h-screen flex flex-col">
+           <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+              <div class="card w-96 bg-base-100 shadow-xl">
+                <div class="card-body">
+                  <h2 class="card-title"><strong>User Name</strong>: <%= user.userName %></h2>
+                  <p><strong>Email</strong>: <%= user.email %></p>
+                  <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+                  </div>
+              </div>
+              <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                  <form action="/pet/createPet" enctype="multipart/form-data" method="POST">
+                       <h1 class="mb-8 text-3xl text-center">Add a Pet</h1>
                         <input 
                             class="block border border-grey-light w-full p-3 rounded mb-4"
                             name="userName"
@@ -67,40 +31,10 @@
                         >Add Pet</button>
                     </div>
               
-                    
                 </div>
               </div>
               
-              <!-- <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div> -->
-              <!-- <div class="form-control">
-                <div class="input-group">
-                  <select class="select select-bordered">
-                    <option disabled selected>Pick Species</option>
-                    <option>Dog</option>
-                    <option>Cat</option>
-                    <option>Horse</option>
-                  </select>
-                  <button class="btn">Go</button>
-                </div>
-              </div> -->
-              <!-- <div class="mb-3">
-                <label for="imgUpload" class="form-label">Photo</label>
-                
-                  
-<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input">Upload file</label>
-<input class="block text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 input input-bordered" id="imageUpload" type="file" name="file"> -->
-
-                
-                <!-- <input type="file" class="form-control" id="imageUpload" name="file"> -->
-              <!-- </div>
-              <br/>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
-          </div> -->
-      <!-- </div> -->
+              
       <h2>LIST OF PETS</h2>
       <div class="col-6">
         <ul class="row list-unstyled">
@@ -128,7 +62,7 @@
           <a class="btn btn-primary" href="/feed">Return to Feed</a>
         </div>  
       </div>  
-    </div>
+    <!-- </div>
   </div>
-</div>
+</div> -->
 <%- include('partials/footer') -%>

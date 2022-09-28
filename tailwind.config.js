@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
 module.exports = {
   content: ['./views/*.ejs'],
   theme: {
@@ -11,6 +10,6 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [
-  ],
+  plugins: [require("daisyui")]
+  ,
 }
