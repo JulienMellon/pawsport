@@ -1,4 +1,4 @@
-# Pawsport - your pet vaccine passport
+# PetVax - your pet vaccine passport
 
 
 # Install
