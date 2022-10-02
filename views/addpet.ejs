@@ -1,0 +1,35 @@
+<%- include('partials/header') -%>
+<div class="container flex-col">
+  <div >
+      <div >
+          <div class="bg-grey-lighter min-h-screen flex flex-col">
+              <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+                  <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                      <h1 class="mb-8 text-3xl text-center">Add a Pet for <%= user.userName %></h1>
+                      <form action="/pet/createPet" enctype="multipart/form-data" method="POST">
+                        <input 
+                            class="block border border-grey-light w-full p-3 rounded mb-4"
+                            type="text" id="name" name="name" placeholder="What an adorable name!" />
+                            
+                        <input 
+                            class="block border border-grey-light w-full p-3 rounded mb-4"
+                            type="text" id="species" name="species" placeholder="Rabbit, Cat, Iguana, etc..." />
+                            
+                        <input 
+                            class="block border border-grey-light w-full p-3 rounded mb-4"
+                            type="file" class="form-control" id="imageUpload" name="file" />
+                            
+                        <button type="submit" class="w-full text-center py-3 rounded bg-secondary text-secondary-content hover:bg-secondary-focus my-1">Add Pet</button>
+                    </form>
+                    </div>
+                </div>
+              </div>
+                   
+        <div class="row justify-content-center mt-5">
+          <a class="btn btn-primary" href="/profile">Return to Profile</a>
+        </div>  
+      </div>  
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') -%>

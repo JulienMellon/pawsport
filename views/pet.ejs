@@ -1,22 +1,54 @@
 <%- include('partials/header') -%>
-  
-
-      <div class="card w-96 bg-base-100 shadow-xl">
-        <figure><img src="<%= pet.image%>" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">
-            <%= pet.name %>
-            <div class="badge badge-secondary">NEW</div>
-          </h2>
-          <div class="card-actions justify-end">
-            <div class="badge badge-outline"><%= pet.species %></div> 
-            <div class="badge badge-outline">Products</div>
-          </div>
-        </div>
-      </div>
-
+<div class="hero min-h-200 bg-base-200">
+  <div class="hero-content flex-col lg:flex-row">
+    <img src="<%= pet.image%>" class="max-w-sm rounded-lg shadow-2xl" />
+    <div>
+      <h1 class="text-5xl font-bold"><%= pet.name %></h1>
+      <p class="py-6">Below is a list of vaccinations for your <%= pet.species%></p>
+      <a href="/profile" class="col-3 btn btn-primary">Back to Profile</a>
+      <a href="#newRecord" class="col-3 btn btn-primary">Add Vaccine</a>
       
 
+      <!-- The button to open modal -->
+<label for="my-modal-3" class="btn btn-primary modal-button">Delete Pet</label>
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal-3" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box relative">
+    <label for="my-modal-3" class="btn btn-secondary btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <h3 class="text-lg font-bold">Are You Sure?</h3>
+    <p class="py-4">If you delete this pet, you will also lose access to all vaccination records connected to this pet</p>
+    <form action="/pet/deletePet/<%= pet.id %>?_method=DELETE" method="POST" class="col-3">
+      <button class="btn btn-primary" type="submit">Delete This Pet</button>
+      </form>
+  </div>
+</div>
+
+
+      <!-- <a href="#deletePet" class="col-3 btn btn-primary">Delete This Pet</a> -->
+      
+    </div>
+  </div>
+</div>
+<div class="bg-base-100">
+  <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+      <!-- For loop goes here -->
+      <% for(var i=0; i< vaccine.length; i++) {%>
+      <a href="#" class="group">
+        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+          <img src="<%= vaccine[i].image %>" alt="Vaccine Record Image" class="h-full w-full object-cover object-center group-hover:opacity-75">
+        </div>
+        <h3 class="mt-4 text-sm text-gray-700"><%= vaccine[i].vaccine %></h3>
+        <p class="mt-1 text-lg font-medium text-gray-900"><%= vaccine[i].dateAdministered %></p>
+      </a>
+      <% } %>
+    </div>
+      
+    </div>
+  </div>
+</div>
 <!-- Add Vaccine Form Section -->
       
       <div class="mt-5">
@@ -35,7 +67,7 @@
           <div class="bg-grey-lighter min-h-screen flex flex-col">
             <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                    <h2 class="mb-8 text-3xl text-center">Add a Vaccination Record</h2>
+                    <h2 id="newRecord" class="mb-8 text-3xl text-center">Add a Vaccination Record</h2>
                     <input 
                         type="text"
                         class="block border border-grey-light w-full p-3 rounded mb-4"
@@ -63,78 +95,4 @@
 
         </form>
       </div>
-
-
-
-      <!-- List of vaccines -->
-      
-      
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-
-      <!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
-<div class="hero bg-base-200">
-  <div class="hero-content text-center">
-    <div class="max-w-md">
-      <h1 class="text-5xl font-bold">Vaccines Saved for: <%= pet.name %></h1>
-      <p class="py-6">Your pet deserves the best!  Here is a list of their vaccines :)</p>
-      <div class="col-6 mt-5">
-        <a class="btn btn-primary" href="/profile">Return to My Pets</a>
-        <!-- <a class="btn btn-primary" href="/feed">Return to Feed</a> -->
-      </div>
-    </div>
-  </div>
-</div>
-<div class="bg-base-100">
-  <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-    
-    
-    
-
-    <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-      <!-- For loop goes here -->
-      <% for(var i=0; i< vaccine.length; i++) {%>
-      <a href="#" class="group">
-        <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-          <img src="<%= vaccine[i].image %>" alt="Vaccine Record Image" class="h-full w-full object-cover object-center group-hover:opacity-75">
-        </div>
-        <h3 class="mt-4 text-sm text-gray-700"><%= vaccine[i].vaccine %></h3>
-        <p class="mt-1 text-lg font-medium text-gray-900"><%= vaccine[i].dateAdministered %></p>
-      </a>
-      <% } %>
-      <!-- For loop ends here -->
-
-      
-      <!-- More products... -->
-    </div>
-  </div>
-</div>
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-
-      
-    </div>
-  </div>
-
-  <%- include('partials/footer') -%>
+<%- include('partials/footer') -%>

@@ -11,6 +11,16 @@ module.exports = {
 			console.log(err);
 		}
 	},
+	getAddPet: async (req, res) => {
+		try {
+			const pets = await Pet.find({ user: req.user.id });
+			res.render("addpet.ejs", 
+			{ pets: pets, user: req.user, name: pets.name, species: pets.species  }
+			);
+		} catch (err) {
+			console.log(err);
+		}
+	},
 	getFeed: async (req, res) => {
 		try {
 			const pets = await Pet.find().sort({ createdAt: "desc" }).lean();
