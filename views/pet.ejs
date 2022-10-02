@@ -1,22 +1,14 @@
 <%- include('partials/header') -%>
-  
-
-      <div class="card w-96 bg-base-100 shadow-xl">
-        <figure><img src="<%= pet.image%>" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">
-            <%= pet.name %>
-            <div class="badge badge-secondary">NEW</div>
-          </h2>
-          <div class="card-actions justify-end">
-            <div class="badge badge-outline"><%= pet.species %></div> 
-            <div class="badge badge-outline">Products</div>
-          </div>
-        </div>
-      </div>
-
-      
-
+<div class="hero min-h-200 bg-base-200">
+  <div class="hero-content flex-col lg:flex-row">
+    <img src="<%= pet.image%>" class="max-w-sm rounded-lg shadow-2xl" />
+    <div>
+      <h1 class="text-5xl font-bold"><%= pet.name %></h1>
+      <p class="py-6">Below is a list of vaccinations for your <%= pet.species%></p>
+      <button class="btn btn-primary">Get Started</button>
+    </div>
+  </div>
+</div>
 <!-- Add Vaccine Form Section -->
       
       <div class="mt-5">
