@@ -7,6 +7,8 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 //Pet Routes - simplified for now
 router.get("/:id", ensureAuth, petsController.getPet);
 
+router.get("/addPet/", ensureAuth, petsController.getAddPet)
+
 router.post("/createPet", upload.single("file"), petsController.createPet);
 
 router.put("/likePet/:id", petsController.likePet);
