@@ -1,14 +1,15 @@
 <%- include('partials/header') -%>
 <div class="hero min-h-200   bg-base-200">
   <div class="hero-content text-center">
-    <div class="max-w-md">
-      <h1 class="text-5xl font-bold">Hello there, <%= user.userName %></h1>
-      <p class="py-6">Welcome to your profile page, </p>
+    <div class="max-w-lg">
+      <h1 class="text-5xl font-bold">Hello There <%= user.userName[0].toUpperCase() + user.userName.slice(1) %>!</h1>
+      <p class="py-6">Welcome to your profile page</p>
       <% if (pets.length < 1){ %>
         <h2>You don't have any pets yet!  Add a pet to see your pets below</h2>
        <% }else{ %>
         <h2>Click on one of your pets below to see the list of their vaccinations</h2>
         <%}%>
+        <br />
       <a href="/logout" class="col-3 btn btn-primary">Logout</a>
       <a href="/addPet" class="col-3 btn btn-primary">Add Pet</a>
       </div>
