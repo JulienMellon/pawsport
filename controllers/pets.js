@@ -38,11 +38,13 @@ module.exports = {
 			console.log(err);
 		}
 	},
+
 	createPet: async (req, res) => {
 		try {
 			// Upload image to cloudinary
-			const result = await cloudinary.uploader.upload(req.file.path);
-
+			// console.log(req.file.path)
+			const result = !req.file.path ? "..public/imgs/logo.jpg" : await cloudinary.uploader.upload(req.file.path);
+			// console.log(result)
 			await Pet.create({
 				name: req.body.name,
 				image: result.secure_url,
@@ -57,6 +59,7 @@ module.exports = {
 			console.log(err);
 		}
 	},
+
 	likePet: async (req, res) => {
 		try {
 			await Pet.findOneAndUpdate(

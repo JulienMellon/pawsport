@@ -1,0 +1,72 @@
+<%- include('partials/splashheader') -%>
+
+
+<div class="hero min-h-screen" style="background-image: url(../imgs/petpolaroids.jpg);">
+    <div class="hero-overlay bg-opacity-60"></div>
+    <main class="container">
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+        <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+        messages.info.forEach( el => { %>
+        <div class="alert alert-info"><%= el.msg %></div>
+        <% }) %> <% } %>  
+        <div class="hero min-h-screen bg-opacity-60 bg-base-300">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        <div class="text-center lg:text-left">
+          <h1 class="text-5xl font-bold">Login now!</h1>
+          <p class="py-6">Login to your PetVax Account and manage your pets' important documents</p>
+        </div>
+        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div class="card-body">
+          <form action="/login" method="POST">
+            <input type="hidden" name="remember" value="true">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Email</span>
+              </label>
+              <input type="text" placeholder="email" class="input input-bordered" id="exampleInputEmail1" 
+                  name="email" 
+                  autocomplete="email" 
+                  aria-describedby="emailHelp"
+                  required  />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Password</span>
+              </label>
+              <input placeholder="password" class="input input-bordered"
+                  id="exampleInputPassword1" 
+                  name="password" 
+                  type="password" 
+                  autocomplete="current-password" 
+                  required  
+                  />
+              <label class="label">
+                <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+              </label>
+            </div>
+            <div class="form-control mt-6">
+              <button class="btn btn-primary m-2">Login</button>
+              <label for="my-modal-6" class="btn btn-primary m-2">Demo Account Info</label>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div> 
+      
+    </main>
+
+  </div>
+  <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+<div class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Thanks for coming to demo my app!</h3>
+    <p class="py-4">try these credentials: <br/><br/> username: harry@hairy.com <br> password: hairyhairy </p>
+    <div class="modal-action">
+      <label for="my-modal-6" class="btn btn-secondary">Close</label>
+    </div>
+  </div>
+</div>
+</body>
+</html>

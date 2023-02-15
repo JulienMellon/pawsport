@@ -15,4 +15,8 @@ router.get("/logout", authController.logout);
 router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
 
+//testing splash.ejs
+router.get("/splash", homeController.getSplash)
+router.get("/test", homeController.getTestPage)
+
 module.exports = router;
