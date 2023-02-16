@@ -1,7 +1,7 @@
 {
-  "name": "binary-upload-boom",
+  "name": "petvax",
   "version": "1.0.0",
-  "description": "100Devs Social Network",
+  "description": "petvax - a pet vaccine passport",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",

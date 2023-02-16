@@ -6,7 +6,7 @@ exports.getLogin = (req, res) => {
   if (req.user) {
     return res.redirect("/profile");
   }
-  res.render("login", {
+  res.render("demologin", {
     title: "Login",
   });
 };

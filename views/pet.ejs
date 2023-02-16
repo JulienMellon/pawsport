@@ -43,6 +43,7 @@
         <!-- TODO Link to individual vaccine image -->
         <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
           <img src="<%= vaccine[i].image %>" alt="Vaccine Record Image" class="h-full w-full object-cover object-center group-hover:opacity-75">
+          <span><%= vaccine[i].image %></span>
         </div>
         <h3 class="mt-4 text-sm text-gray-700"><%= vaccine[i].vaccine %></h3>
         <p class="mt-1 text-lg font-medium text-gray-900"><%= vaccine[i].dateAdministered %></p>
@@ -87,7 +88,7 @@
                         type="file" class="form-control" id="imageUpload" name="file" />
                         
                     <input type="hidden" name="petid" id="petid" value="<%= pet.id %>">
-          
+                    <span> An image is required - jpg only please!</span>
                     <button type="submit"
                         class="w-full text-center py-3 rounded bg-secondary text-secondary-content hover:bg-secondary-focus  my-1"
                     >Create Record</button>
