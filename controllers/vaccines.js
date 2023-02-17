@@ -5,14 +5,17 @@ const Vaccine = require("../models/Vaccine");
 module.exports = {
 	createVaccine: async (req, res) => {
 		try {
-			const result = await cloudinary.uploader.upload(req.file.path);
+			let result = "https://res.cloudinary.com/julienmellon/image/upload/v1676563812/bwyhunrubz7eo9xke2pt.jpg"
+			if(req.file){
+				result = await cloudinary.uploader.upload(req.file.path);
+			}
 			await Vaccine.create({
 				vaccine: req.body.vaccine,
 				user: req.user.id,
 				petid: req.body.petid,
 				dateAdministered: req.body.dateAdministered,
-				image: result.secure_url,				
-				cloudinaryId: result.public_id				
+				image: result.secure_url || result,				
+				cloudinaryId: result.public_id || null				
 			});
 			console.log("Vaccine has been added!");
 			res.redirect("/pet/" + req.body.petid);
@@ -32,7 +35,7 @@ module.exports = {
 			console.log(`pet ${req.body.petid}`)
 			res.redirect(`/pet/${req.body.petid}`);
 		} catch (err) {
-			console.log(err);
+			console.log(err);  
 		}
 	},
 	softDeleteVaccine: async (req, res)=>{
