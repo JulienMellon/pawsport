@@ -1,7 +1,7 @@
 # PetVax - your pet vaccine passport
 
 
-**Link to Live version of project:** https://petvax.herokuapp.com/
+**Link to Live version of project:** https://petvax.cyclic.app/
 
 ![a screenshot of the project index.html](https://cdn.discordapp.com/attachments/946850401536319571/1026244917623803965/Screenshot_2022-10-02_173037.jpg)
 
