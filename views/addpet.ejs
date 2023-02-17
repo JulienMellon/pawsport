@@ -6,14 +6,16 @@
                       <form action="/pet/createPet" enctype="multipart/form-data" method="POST">
                         <input 
                             class="block border border-grey-light w-full p-3 rounded mb-4"
-                            type="text" id="name" name="name" placeholder="What an adorable name!" />
+                            type="text" id="name" name="name" placeholder="What an adorable name!" 
+                            required/>
                             
                         <input 
                             class="block border border-grey-light w-full p-3 rounded mb-4"
-                            type="text" id="species" name="species" placeholder="Rabbit, Cat, Iguana, etc..." />
+                            type="text" id="species" name="species" placeholder="Rabbit, Cat, Iguana, etc..." 
+                            required/>
 
                             
-                            <span>image is required, jpg only please!</span>
+                            <span>jpg only please!</span>
                         <input 
                             class="block border border-grey-light w-full p-3 rounded mb-4"
                             type="file" class="form-control" id="imageUpload" name="file" />

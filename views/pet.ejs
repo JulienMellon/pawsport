@@ -76,19 +76,21 @@
                     <input 
                         type="text"
                         class="block border border-grey-light w-full p-3 rounded mb-4"
-                        id="vaccine" name="vaccine" placeholder="vaccine name" />
+                        id="vaccine" name="vaccine" placeholder="vaccine name" 
+                        required/>
                         
                     <input 
                         class="block border border-grey-light w-full p-3 rounded mb-4"
                         aria-describedby="dateAdministered" 
-                        type="date" name="dateAdministered" id="dateAdministered"/>
+                        type="date" name="dateAdministered" id="dateAdministered"
+                        required/>
                         
                     <input 
                         class="block border border-grey-light w-full p-3 rounded mb-4"
                         type="file" class="form-control" id="imageUpload" name="file" />
                         
                     <input type="hidden" name="petid" id="petid" value="<%= pet.id %>">
-                    <span> An image is required - jpg only please!</span>
+                    <span> jpg only please!</span>
                     <button type="submit"
                         class="w-full text-center py-3 rounded bg-secondary text-secondary-content hover:bg-secondary-focus  my-1"
                     >Create Record</button>
