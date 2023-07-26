@@ -45,7 +45,7 @@ module.exports = {
 			// console.log(req.file.path)
 			let result = "https://res.cloudinary.com/julienmellon/image/upload/v1676566112/sgtikzggiibqxttlxohv.jpg"
 			if (req.file){
-				const result = await cloudinary.uploader.upload(req.file.path);
+				result = await cloudinary.uploader.upload(req.file.path);
 			}
 			// console.log(result)
 			await Pet.create({
