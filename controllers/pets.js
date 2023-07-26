@@ -41,17 +41,17 @@ module.exports = {
 
 	createPet: async (req, res) => {
 		try {
-			// Upload image to cloudinary yolo
+			// Upload image to cloudinary
 			// console.log(req.file.path)
-			let result = "https://res.cloudinary.com/julienmellon/image/upload/v1676566112/sgtikzggiibqxttlxohv.jpg"
+			let defaultImage = "https://res.cloudinary.com/julienmellon/image/upload/v1676566112/sgtikzggiibqxttlxohv.jpg"
 			if (req.file){
-				result = await cloudinary.uploader.upload(req.file.path);
+				const result = await cloudinary.uploader.upload(req.file.path);
 			}
 			// console.log(result)
 			await Pet.create({
 				name: req.body.name,
-				image: result.secure_url || result,
-				cloudinaryId: result.public_id || null,
+				image: result.secure_url || defaultImage,
+				cloudinaryId: result.public_id || Math.floor(Math.random()*10000000),
 				species: req.body.species,
 				likes: 0,
  				user: req.user.id,
