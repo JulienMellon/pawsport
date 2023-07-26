@@ -41,7 +41,7 @@ module.exports = {
 
 	createPet: async (req, res) => {
 		try {
-			// Upload image to cloudinary
+			// Upload image to cloudinary yolo
 			// console.log(req.file.path)
 			let result = "https://res.cloudinary.com/julienmellon/image/upload/v1676566112/sgtikzggiibqxttlxohv.jpg"
 			if (req.file){
