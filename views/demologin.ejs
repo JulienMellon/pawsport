@@ -62,7 +62,30 @@
 <div class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
     <h3 class="font-bold text-lg">Thanks for coming to demo my app!</h3>
-    <p class="py-4">try these credentials: <br/><br/> username: harry@hairy.com <br> password: hairyhairy </p>
+    <% // this is going to be where the one click to enter demo button goes %>
+    <form action="/login" method="POST">
+            <input type="hidden" name="remember" value="true">
+            <div class="form-control">
+              <input type="hidden" value= "demo@demo.com" class="input input-bordered" id="exampleInputEmail1" 
+                  name="email" 
+                  autocomplete="email" 
+                  aria-describedby="emailHelp"
+                  required  />
+            </div>
+            <div class="form-control">
+              <input placeholder="password" class="input input-bordered"
+                  id="exampleInputPassword1" 
+                  name="password" 
+                  type="hidden" 
+                  value="thisisademo" 
+                  required  
+                  />
+              <button class="btn btn-primary m-2">Click here to Login to the Demo Account Right Away </button>
+            </div>
+    </form>
+
+    <% // %>
+    <p class="py-4">try these credentials if you like to type into forms: <br/><br/> username: harry@hairy.com <br> password: hairyhairy </p>
     <div class="modal-action">
       <label for="my-modal-6" class="btn btn-secondary">Close</label>
     </div>
