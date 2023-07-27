@@ -45,19 +45,19 @@ module.exports = {
 			// console.log(req.file.path)
 			let defaultImage = "https://res.cloudinary.com/julienmellon/image/upload/v1676566112/sgtikzggiibqxttlxohv.jpg"
 			if (!req.file){
-				result = { 
+				petImage = { 
 					secure_url: defaultImage,
-					public_id: 	`${Math.floor(Math.random()*10000000)}`						
+					public_id: 	`${Math.floor(Math.random() * 10**7 )}`						
 				}
 			}else{
-				result = await cloudinary.uploader.upload(req.file.path);
+				petImage = await cloudinary.uploader.upload(req.file.path);
 			}
-			// console.log(result)
+			// console.log(petImage)
 			await Pet.create({
-				name: req.body.name,
-				image: result.secure_url || defaultImage,
-				cloudinaryId: result.public_id || Math.floor(Math.random()*10000000),
-				species: req.body.species,
+				name: req.body.name || 'Pet with no name',
+				image: petImage.secure_url || defaultImage,
+				cloudinaryId: petImage.public_id || Math.floor(Math.random()*10000000),
+				species: req.body.species || 'Dog',
 				likes: 0,
  				user: req.user.id,
 			});
