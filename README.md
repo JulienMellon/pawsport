@@ -28,9 +28,6 @@ add a way to remind the user when their pet is due for a vaccination
 
 figure out how to get cloudinary to accept filetypes other than .jpg (the answer was something something they wont serve up pdfs for free)
 
-at some point the delete pet feature stopped working...
-
-
 # How to make this work locally:
 
 ## Install
