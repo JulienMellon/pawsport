@@ -5,17 +5,32 @@ const Vaccine = require("../models/Vaccine");
 module.exports = {
 	createVaccine: async (req, res) => {
 		try {
-			let result = "https://res.cloudinary.com/julienmellon/image/upload/v1676563812/bwyhunrubz7eo9xke2pt.jpg"
-			if(req.file){
-				result = await cloudinary.uploader.upload(req.file.path);
+			/*
+			if (!req.file){
+				petImage = { 
+					secure_url: defaultImage,
+					public_id: 	`${Math.floor(Math.random() * (10**7) )}`						
+				}
+			}else{
+				petImage = await cloudinary.uploader.upload(req.file.path);
+			}
+			*/
+			let defaultImage = "https://res.cloudinary.com/julienmellon/image/upload/v1676563812/bwyhunrubz7eo9xke2pt.jpg"
+			if(!req.file){
+				vaxDocumentImage = { 
+					secure_url: defaultImage,
+					public_id: 	`${Math.floor(Math.random() * (10**7) )}`						
+				}
+			}else{
+				vaxDocumentImage = await cloudinary.uploader.upload(req.file.path);
 			}
 			await Vaccine.create({
 				vaccine: req.body.vaccine,
 				user: req.user.id,
 				petid: req.body.petid,
 				dateAdministered: req.body.dateAdministered,
-				image: result.secure_url || result,				
-				cloudinaryId: result.public_id || null				
+				image: vaxDocumentImage.secure_url || vaxDocumentImage,				
+				cloudinaryId: vaxDocumentImage.public_id || null				
 			});
 			console.log("Vaccine has been added!");
 			res.redirect("/pet/" + req.body.petid);

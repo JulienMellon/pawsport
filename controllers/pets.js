@@ -41,18 +41,23 @@ module.exports = {
 
 	createPet: async (req, res) => {
 		try {
-			// Upload image to cloudinary yolo
+			// Upload image to cloudinary
 			// console.log(req.file.path)
-			let result = "https://res.cloudinary.com/julienmellon/image/upload/v1676566112/sgtikzggiibqxttlxohv.jpg"
-			if (req.file){
-				result = await cloudinary.uploader.upload(req.file.path);
+			let defaultImage = "https://res.cloudinary.com/julienmellon/image/upload/v1676566112/sgtikzggiibqxttlxohv.jpg"
+			if (!req.file){
+				petImage = { 
+					secure_url: defaultImage,
+					public_id: 	`${Math.floor(Math.random() * 10**7 )}`						
+				}
+			}else{
+				petImage = await cloudinary.uploader.upload(req.file.path);
 			}
-			// console.log(result)
+			// console.log(petImage)
 			await Pet.create({
-				name: req.body.name,
-				image: result.secure_url || result,
-				cloudinaryId: result.public_id || null,
-				species: req.body.species,
+				name: req.body.name || 'Pet with no name',
+				image: petImage.secure_url || defaultImage,
+				cloudinaryId: petImage.public_id || Math.floor(Math.random()*10000000),
+				species: req.body.species || 'Dog',
 				likes: 0,
  				user: req.user.id,
 			});
