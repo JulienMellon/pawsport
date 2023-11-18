@@ -33,12 +33,18 @@
 </div>
 
 <!-- I think a table view of vaccinations goes here -->
+<!-- this is where I'm going to add the petreport -->
+<div class="bg-base-200" >
+  <%- include('./petreport') -%>
+</div>
 
 <div class="bg-base-100">
+  <h2 class="text-5xl text-center">Saved Vaccine Records</h2>
+
   <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
       <!-- For loop goes here -->
-      <% for(var i=0; i< vaccine.length; i++) {%>
+      <% for( var i = 0; i < vaccine.length; i++) {%>
       <a href="#" class="group">
         <!-- TODO Link to individual vaccine image -->
         <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
@@ -86,9 +92,10 @@
                         required/>
                         
                     <input 
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
-                        type="file" class="form-control" id="imageUpload" name="file" />
-                        
+                        class="file-input file-input-bordered file-input-primary w-full max-w-xs"
+                        type="file" id="imageUpload" name="file" />
+                    <!-- <input type="file"  /> -->
+         
                     <input type="hidden" name="petid" id="petid" value="<%= pet.id %>">
                     <span> jpg only please!</span>
                     <button type="submit"

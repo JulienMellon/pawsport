@@ -2,31 +2,26 @@
 <!-- TODO actually figure out how to get this out -->
 
 
-<h2>Pet Vaccine Report</h2>
-<p>There are three CORE vaccines</p>
+<div class="hero min-h-200 bg-base-200">
+    <div class="hero-content">
+      <div class="max-w-7xl">
+            <h2 class="text-5xl font-bold py-8 text-center">Pet Vaccine Report</h1>
+            <p class="text-3xl py-6">According to the guidelines, all dogs should have the following CORE vaccines</p>
+            </h2>
+            <div class="text-center">
 
-<p>Vaccine Schedule built according to <a href="https://www.aaha.org/aaha-guidelines/2022-aaha-canine-vaccination-guidelines/home/">2022 AAHA Canine Vaccination Guidelines</a></p>
+                <%- include('./corevaccinetable') -%>    
+            </div>
+            <p class="text-3xl py-6">NONCORE VACCINES: The following vaccines are recommended for some dogs based on lifestyle, geographic location, and risk of exposure.</p>
+            <div class="text-center">
 
-<h3>According to the guidelines, all dogs should have the following:</h3>
+                <%- include('./noncorevaccinetable') -%>    
+            </div>
 
-<ul>
-    <li>
-        Distemper
-        Your Dog's vaccination for Distemper { // if vaccine recorded? 'expires' dateofexpiry : 'is not recorded, is your canine protected from Distemper?' }
-    </li>
-    <li>Adenovirus</li>
-    <li>Parvovirus</li>
-    <li> +/- Parainfluenza</li>
-    <li>Rabies</li>
-</ul>
-
-<h3>In addition to these, other vaccines are just as essential for some dogs based on their lifestyle and risk. These include:</h3>
-
-<ul>
-    <li>Leptospira (should be considered for all dogs based on increasing prevalence)</li>
-    <li>Lyme disease</li>
-    <li>Bordetella</li>
-    <li>Canine influenza</li>
-    <li>Rattlesnake toxoid</li>
-</ul>
+            <div class="py-8">
+                <p>Vaccine Schedule built according to <a href="https://www.aaha.org/aaha-guidelines/2022-aaha-canine-vaccination-guidelines/home/">2022 AAHA Canine Vaccination Guidelines</a></p>
+            </div>
+        </div>
+    </div>    
+</div>
 
