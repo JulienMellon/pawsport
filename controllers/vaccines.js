@@ -75,7 +75,7 @@ module.exports = {
 			// Delete image from cloudinary
 			await cloudinary.uploader.destroy(vaccine.cloudinaryId);
 			// Delete vaccine from db
-			await Vaccine.remove({ _id: req.params.id });
+			await Vaccine.deleteMany({ _id: req.params.id });
 			console.log("Deleted Vaccine");
 			res.redirect(`/pet/${req.body.petid}`);
 		} catch (err) {
