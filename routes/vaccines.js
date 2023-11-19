@@ -9,7 +9,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.post("/createVaccine/", upload.single("file"), vaccinesController.createVaccine);
 
-router.put("/likeVaccine/:id", vaccinesController.likeVaccine);
+router.put("/updateVaccine/:id", vaccinesController.updateVaccine);
 
 router.delete("/deleteVaccine/:id", vaccinesController.deleteVaccine);
 

@@ -43,12 +43,12 @@ module.exports = {
 		try {
 			// Upload image to cloudinary
 			// console.log(req.file.path)
-			let defaultImage = "https://res.cloudinary.com/julienmellon/image/upload/v1676566112/sgtikzggiibqxttlxohv.jpg"
+			let defaultImage = "./public/imgs/heartpaw.jpg"
 			if (!req.file){
-				petImage = { 
-					secure_url: defaultImage,
-					public_id: 	`${Math.floor(Math.random() * 10**7 )}`						
-				}
+				petImage = await cloudinary.uploader.upload(defaultImage); //{ 
+				// 	secure_url: defaultImage,
+				// 	public_id: 	`${Math.floor(Math.random() * 10**7 )}`						
+				// }
 			}else{
 				petImage = await cloudinary.uploader.upload(req.file.path);
 			}

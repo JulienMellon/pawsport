@@ -38,7 +38,7 @@ module.exports = {
 			console.log(err);
 		}
 	},
-	likeVaccine: async (req, res) => {
+	updateVaccine: async (req, res) => {
 		try {
 			await Vaccine.findOneAndUpdate(
 				{ _id: req.params.idVaccine },

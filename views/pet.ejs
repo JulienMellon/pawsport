@@ -1,4 +1,17 @@
 <%- include('partials/splashheader') -%>
+<!-- DeletePet Modal Put this part before </body> tag -->
+<input type="checkbox" id="my-modal-3" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box relative">
+    <label for="my-modal-3" class="btn btn-secondary btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <h3 class="text-lg font-bold">Are You Sure?</h3>
+    <p class="py-4">If you delete this pet, you will also lose access to all vaccination records connected to this pet</p>
+    <form action="/pet/deletePet/<%= pet.id %>?_method=DELETE" method="POST" class="col-3">
+      <button class="btn btn-primary" type="submit">Delete This Pet</button>
+      </form>
+  </div>
+</div>
+
 <div class="hero min-h-200 bg-base-200">
   <div class="hero-content flex-col lg:flex-row">
     <img src="<%= pet.image%>" class="max-w-sm rounded-lg shadow-2xl" />
@@ -12,18 +25,7 @@
       <!-- The button to open modal -->
 <label for="my-modal-3" class="btn btn-primary modal-button">Delete Pet</label>
 
-<!-- Put this part before </body> tag -->
-<input type="checkbox" id="my-modal-3" class="modal-toggle" />
-<div class="modal">
-  <div class="modal-box relative">
-    <label for="my-modal-3" class="btn btn-secondary btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <h3 class="text-lg font-bold">Are You Sure?</h3>
-    <p class="py-4">If you delete this pet, you will also lose access to all vaccination records connected to this pet</p>
-    <form action="/pet/deletePet/<%= pet.id %>?_method=DELETE" method="POST" class="col-3">
-      <button class="btn btn-primary" type="submit">Delete This Pet</button>
-      </form>
-  </div>
-</div>
+
 
 
       <!-- <a href="#deletePet" class="col-3 btn btn-primary">Delete This Pet</a> -->
