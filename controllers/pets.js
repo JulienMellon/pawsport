@@ -89,7 +89,7 @@ module.exports = {
 			// Delete image from cloudinary
 			await cloudinary.uploader.destroy(pet.cloudinaryId);
 			// Delete pet from db
-			await Pet.remove({ _id: req.params.id });
+			await Pet.deleteMany({ _id: req.params.id });
 			console.log("Deleted Pet");
 			res.redirect("/profile");
 		} catch (err) {
