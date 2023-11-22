@@ -42,17 +42,13 @@ module.exports = {
 	createPet: async (req, res) => {
 		try {
 			// Upload image to cloudinary
-			// console.log(req.file.path)
 			let defaultImage = "./public/imgs/heartpaw.jpg"
 			if (!req.file){
-				petImage = await cloudinary.uploader.upload(defaultImage); //{ 
-				// 	secure_url: defaultImage,
-				// 	public_id: 	`${Math.floor(Math.random() * 10**7 )}`						
-				// }
+				petImage = await cloudinary.uploader.upload(defaultImage);
 			}else{
 				petImage = await cloudinary.uploader.upload(req.file.path);
 			}
-			// console.log(petImage)
+			
 			await Pet.create({
 				name: req.body.name || 'Pet with no name',
 				image: petImage.secure_url || defaultImage,

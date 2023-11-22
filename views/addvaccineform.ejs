@@ -1,0 +1,47 @@
+<div class="mt-5">
+    <!-- <h2>Add a vaccine</h2> -->
+    <!-- Vaccines Form needs to include: vaccine image dateAdministered -->
+    <form action="/vaccine/createVaccine/" enctype="multipart/form-data" method="POST">
+      <!-- <div class="mb-3">
+        <label for="vaccine" class="form-label">Vaccine</label>
+        <input type="text" class="form-control" id="vaccine" name="vaccine" placeholder="vaccine name">
+        <input type="date" name="dateAdministered" id="dateAdministered">
+        <input type="file" class="form-control" id="imageUpload" name="file">
+        <input type="hidden" name="petid" id="petid" value="<%= pet.id %>">
+      </div>
+      <button type="submit" class="btn btn-primary"> Submit</button> -->
+
+      <div class="bg-grey-lighter min-h-screen flex flex-col">
+        <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+            <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                <h2 id="newRecord" class="mb-8 text-3xl text-center">Add a Vaccination Record</h2>
+                <input 
+                    type="text"
+                    class="block border border-grey-light w-full p-3 rounded mb-4"
+                    id="vaccine" name="vaccine" placeholder="vaccine name" 
+                    required/>
+                    
+                <input 
+                    class="block border border-grey-light w-full p-3 rounded mb-4"
+                    aria-describedby="dateAdministered" 
+                    type="date" name="dateAdministered" id="dateAdministered"
+                    required/>
+                    
+                <input 
+                    class="file-input file-input-bordered file-input-primary w-full max-w-xs"
+                    type="file" id="imageUpload" name="file" />
+                <!-- <input type="file"  /> -->
+     
+                <input type="hidden" name="petid" id="petid" value="<%= pet.id %>">
+                <span> jpg only please!</span>
+                <button type="submit"
+                    class="w-full text-center py-3 rounded bg-secondary text-secondary-content hover:bg-secondary-focus  my-1"
+                >Create Record</button>
+            </div>
+      
+            
+        </div>
+      </div>
+
+    </form>
+  </div>
